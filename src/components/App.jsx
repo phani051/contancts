@@ -9,21 +9,24 @@ function Card(props) {
         <img className="circle-img" src={props.img} alt="avatar.img" />
       </div>
       <div className="bottom ">
-        <p className="info">{props.tel}</p>
-        <p className="info">{props.email}</p>
+        {/* <p className="info">{props.tel}</p>
+        <p className="info">{props.email}</p> */}
+        <Details detailinfo={props.tel} />
+        <Details detailinfo={props.email} />
       </div>
       
     </div>
   );
 }
 
-function Details(props){
+function Details(props) {
   return (
-    <div className="bottom ">
-        <p className="info">{props.tel}</p>
-        <p className="info">{props.email}</p>
-      </div>
-  )
+    
+      
+      <p className="info">{props.detailinfo}</p>
+      
+    
+  );
 }
 
 function GetContacts() {
@@ -41,31 +44,18 @@ function GetContacts() {
   return a;
 }
 
-function GetDetails() {
-  const a = [];
-  for (let i = 0; i < contacts.length; i++) {
-    a.push(
-      <Details
-        
-        tel={contacts[i].phone}
-        email={contacts[i].email}
-      />
-    );
-  }
-  return a;
+function Avatar(props){
+  return <img className="circle-img" src={props.img} alt="avatar_img" />;
 }
-
-console.log(GetDetails());
-
 
 
 function App() {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
+      <Avatar img="https://avatars.githubusercontent.com/u/87582519?v=4" />
 
       <GetContacts />
-      
     </div>
   );
 }
