@@ -14,19 +14,12 @@ function Card(props) {
         <Details detailinfo={props.tel} />
         <Details detailinfo={props.email} />
       </div>
-      
     </div>
   );
 }
 
 function Details(props) {
-  return (
-    
-      
-      <p className="info">{props.detailinfo}</p>
-      
-    
-  );
+  return <p className="info">{props.detailinfo}</p>;
 }
 
 function GetContacts() {
@@ -34,20 +27,19 @@ function GetContacts() {
   for (let i = 0; i < contacts.length; i++) {
     a.push(
       <Card
-        name={contacts[i].name}
-        img={contacts[i].imgURL}
-        tel={contacts[i].phone}
-        email={contacts[i].email}
+        name={contacts[0].name}
+        img={contacts[0].imgURL}
+        tel={contacts[0].phone}
+        email={contacts[0].email}
       />
     );
   }
   return a;
 }
 
-function Avatar(props){
+function Avatar(props) {
   return <img className="circle-img" src={props.img} alt="avatar_img" />;
 }
-
 
 function App() {
   return (
@@ -55,7 +47,25 @@ function App() {
       <h1 className="heading">My Contacts</h1>
       <Avatar img="https://avatars.githubusercontent.com/u/87582519?v=4" />
 
-      <GetContacts />
+      {/* <GetContacts /> */}
+      <Card
+        name={contacts[0].name}
+        img={contacts[0].imgURL}
+        tel={contacts[0].phone}
+        email={contacts[0].email}
+      />
+      <Card
+        name={contacts[1].name}
+        img={contacts[1].imgURL}
+        tel={contacts[1].phone}
+        email={contacts[1].email}
+      />
+      <Card
+        name={contacts[2].name}
+        img={contacts[2].imgURL}
+        tel={contacts[2].phone}
+        email={contacts[2].email}
+      />
     </div>
   );
 }
